@@ -14,8 +14,8 @@
 // Initialize both with the value 0
 
 // Create a function named playRound
-// This function takes two parameters: playerSelection and computerSelection
-// Convert playerSelection to lowercase to handle case-insensitive input
+// This function takes two parameters: humanChoice and computerChoice
+// Convert humanChoice to lowercase to handle case-insensitive input
 // Compare the two choices and determine the winner of the round
 // Return a string with the result, e.g. "You lose! Paper beats Rock"
 
@@ -42,18 +42,94 @@ function getHumanChoice(){
   return input.toLowerCase().trim();
 }
 
-console.log(getHumanChoice());
 
+function playGame() {
+let humanScore = 0;
+let computerScore = 0;
 
-
-
-console.log(getComputerChoice);
-
-function playRound(playerSelection, computerSelection){
-  const player = playerSelection.toLowerCase();
-  const computer = computerSelection.toLowerCase();
-  if (player === computer) {
-    return 
+function playRound(humanChoice, computerChoice){
+  const human = humanChoice.toLowerCase();
+  const computer = computerChoice.toLowerCase();
+  
+  if (human === computer) {
+    return "Draw";
+  } else if (human === "rock" && computer === "scissors") {
+    return "You Win! Rock beats Scissors";
+  } else if (human === "paper" && computer === "rock") {
+    return "You Win! Paper beats Rock";
+  } else if (human === "scissors" && computer === "paper") {
+    return "You Win! Scissors beats Paper";
   }
-   
+  else {
+    return `You lose! ${computer.charAt(0).toUpperCase() + computer.slice(1)} beats ${human}`;
+  }
 }
+
+const humanChoice1 = getHumanChoice();
+  const computerChoice1 = getComputerChoice();
+  const result1 = playRound(humanChoice1, computerChoice1);
+  console.log("Round 1:", result1);
+
+  if (result1.startsWith("You Win")) {
+  humanScore++;
+} else if (result1.startsWith("You lose")) {
+  computerScore++;
+}
+
+const humanChoice2 = getHumanChoice();
+  const computerChoice2 = getComputerChoice();
+  const result2 = playRound(humanChoice2, computerChoice2);
+  console.log("Round 2:", result2);
+
+  if (result2.startsWith("You Win")) {
+  humanScore++;
+} else if (result2.startsWith("You lose")) {
+  computerScore++;
+}
+
+  const humanChoice3 = getHumanChoice();
+  const computerChoice3 = getComputerChoice();
+  const result3 = playRound(humanChoice3, computerChoice3);
+  console.log("Round 3:", result3);
+
+    if (result3.startsWith("You Win")) {
+  humanScore++;
+} else if (result3.startsWith("You lose")) {
+  computerScore++;
+}
+
+  const humanChoice4 = getHumanChoice();
+  const computerChoice4 = getComputerChoice();
+  const result4 = playRound(humanChoice4, computerChoice4);
+  console.log("Round 4:", result4);
+
+    if (result4.startsWith("You Win")) {
+  humanScore++;
+} else if (result4.startsWith("You lose")) {
+  computerScore++;
+}
+
+  const humanChoice5 = getHumanChoice();
+  const computerChoice5 = getComputerChoice();
+  const result5 = playRound(humanChoice5, computerChoice5);
+  console.log("Round 5:", result5);
+
+    if (result5.startsWith("You Win")) {
+  humanScore++;
+} else if (result5.startsWith("You lose")) {
+  computerScore++;
+}
+
+console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
+
+  if (humanScore > computerScore) {
+    console.log("🏆 You won the game!");
+  } else if (computerScore > humanScore) {
+    console.log("😞 You lost the game.");
+  } else {
+    console.log("🤝 It's a tie!");
+  }
+}
+
+
+playGame()
