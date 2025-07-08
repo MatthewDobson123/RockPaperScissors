@@ -3,6 +3,16 @@
 // "rock", "paper", or "scissors"
 // Test the function with console.log
 
+// Create a function named getHumanChoice
+// This function will prompt the user to enter "rock", "paper", or "scissors"
+// Assume valid input (no error checking needed yet)
+// Convert the input to lowercase and trim extra spaces
+// Return the result
+// Test the function with console.log
+
+// Declare two global variables: humanScore and computerScore
+// Initialize both with the value 0
+
 // Create a function named playRound
 // This function takes two parameters: playerSelection and computerSelection
 // Convert playerSelection to lowercase to handle case-insensitive input
@@ -27,4 +37,23 @@ function getComputerChoice(){
   }
 }
 
+function getHumanChoice(){
+  const input = prompt("rock, paper, or scissors:");
+  return input.toLowerCase().trim();
+}
+
+console.log(getHumanChoice());
+
+
+
+
 console.log(getComputerChoice);
+
+function playRound(playerSelection, computerSelection){
+  const player = playerSelection.toLowerCase();
+  const computer = computerSelection.toLowerCase();
+  if (player === computer) {
+    return 
+  }
+   
+}
